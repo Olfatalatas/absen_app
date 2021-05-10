@@ -53,7 +53,7 @@ class _AbsenPageState extends State<AbsenPage> {
 
 class BodyFormAbsen extends StatelessWidget {
   const BodyFormAbsen({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -169,8 +169,8 @@ class BodyFormAbsen extends StatelessWidget {
 class Absen extends StatelessWidget {
   final String imgSrc;
   const Absen({
-    Key key,
-    this.imgSrc,
+    Key? key,
+    required this.imgSrc,
   }) : super(key: key);
 
   @override

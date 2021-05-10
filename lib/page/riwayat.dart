@@ -109,7 +109,7 @@ class _RiwayatPageState extends State<RiwayatPage> {
 
 class BodyRiwayat extends StatelessWidget {
   const BodyRiwayat({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
