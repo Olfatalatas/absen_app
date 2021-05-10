@@ -51,9 +51,7 @@ class _IzinPageState extends State<IzinPage> {
 }
 
 class BodyIzin extends StatelessWidget {
-  const BodyIzin({
-    Key key,
-  }) : super(key: key);
+  final _formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -97,104 +95,125 @@ class BodyIzin extends StatelessWidget {
                 ),
               ),
             ),
-            Padding(
-              padding: EdgeInsets.fromLTRB(0.0, 0.0, 250.0, 0.0),
-              child: Text(
-                "Alasan",
-                textAlign: TextAlign.left,
-                style: TextStyle(
-                  fontSize: 15,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ),
-            Padding(
-              padding: EdgeInsets.fromLTRB(0.0, 15.0, 0.0, 10.0),
-              child: TextField(
-                decoration: InputDecoration(
-                  labelText: 'Alasan',
-                  enabledBorder: OutlineInputBorder(
-                    borderRadius: const BorderRadius.all(
-                      const Radius.circular(12.0),
-                    ),
-                    borderSide: BorderSide(
-                      color: Colors.teal.shade600,
+            Form(
+              key: _formKey,
+              child: Column(
+                children: <Widget>[
+                  Padding(
+                    padding: EdgeInsets.fromLTRB(0.0, 0.0, 250.0, 0.0),
+                    child: Text(
+                      "Alasan",
+                      textAlign: TextAlign.left,
+                      style: TextStyle(
+                        fontSize: 15,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ),
-                  border: OutlineInputBorder(
-                    borderRadius: const BorderRadius.all(
-                      const Radius.circular(12.0),
+                  Padding(
+                    padding: EdgeInsets.fromLTRB(0.0, 15.0, 0.0, 10.0),
+                    child: TextFormField(
+                      decoration: InputDecoration(
+                        labelText: 'Alasan',
+                        enabledBorder: OutlineInputBorder(
+                          borderRadius: const BorderRadius.all(
+                            const Radius.circular(12.0),
+                          ),
+                          borderSide: BorderSide(
+                            color: Colors.teal.shade600,
+                          ),
+                        ),
+                        border: OutlineInputBorder(
+                          borderRadius: const BorderRadius.all(
+                            const Radius.circular(12.0),
+                          ),
+                        ),
+                      ),
+                      onChanged: (value) {},
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return 'Please enter some text';
+                        }
+                        return null;
+                      },
                     ),
                   ),
-                ),
-                onChanged: (value) {},
-              ),
-            ),
-            Padding(
-              padding: EdgeInsets.fromLTRB(0.0, 0.0, 225.0, 0.0),
-              child: Text(
-                "Upload File",
-                textAlign: TextAlign.left,
-                style: TextStyle(
-                  fontSize: 15,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ),
-            Padding(
-              padding: EdgeInsets.fromLTRB(0.0, 15.0, 0.0, 10.0),
-              child: TextField(
-                showCursor: true,
-                readOnly: true,
-                decoration: InputDecoration(
-                  labelText: 'unggah file disini',
-                  suffixIcon: IconButton(
-                    icon: Icon(Icons.cloud_upload_sharp),
-                    onPressed: () {
-                      _bottomSheet(context);
-                    },
-                  ),
-                  enabledBorder: OutlineInputBorder(
-                    borderRadius: const BorderRadius.all(
-                      const Radius.circular(12.0),
-                    ),
-                    borderSide: BorderSide(
-                      color: Colors.teal.shade600,
+                  Padding(
+                    padding: EdgeInsets.fromLTRB(0.0, 0.0, 225.0, 0.0),
+                    child: Text(
+                      "Upload File",
+                      textAlign: TextAlign.left,
+                      style: TextStyle(
+                        fontSize: 15,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ),
-                  border: OutlineInputBorder(
-                    borderRadius: const BorderRadius.all(
-                      const Radius.circular(12.0),
+                  Padding(
+                    padding: EdgeInsets.fromLTRB(0.0, 15.0, 0.0, 10.0),
+                    child: TextFormField(
+                      showCursor: true,
+                      readOnly: true,
+                      decoration: InputDecoration(
+                        labelText: 'unggah file disini',
+                        suffixIcon: IconButton(
+                          icon: Icon(Icons.cloud_upload_sharp),
+                          onPressed: () {
+                            _bottomSheet(context);
+                          },
+                        ),
+                        enabledBorder: OutlineInputBorder(
+                          borderRadius: const BorderRadius.all(
+                            const Radius.circular(12.0),
+                          ),
+                          borderSide: BorderSide(
+                            color: Colors.teal.shade600,
+                          ),
+                        ),
+                        border: OutlineInputBorder(
+                          borderRadius: const BorderRadius.all(
+                            const Radius.circular(12.0),
+                          ),
+                        ),
+                      ),
+                      onChanged: (value) {},
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return 'Please attach some file';
+                        }
+                        return null;
+                      },
                     ),
                   ),
-                ),
-                onChanged: (value) {},
-              ),
-            ),
-            Padding(
-              padding: EdgeInsets.fromLTRB(0.0, 20.0, 0.0, 10.0),
-              child: SizedBox(
-                width: 370.0,
-                height: 50.0,
-                child: RaisedButton(
-                  child: Text(
-                    "Submit",
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 15.0,
+                  Padding(
+                    padding: EdgeInsets.fromLTRB(0.0, 20.0, 0.0, 10.0),
+                    child: SizedBox(
+                      width: 370.0,
+                      height: 50.0,
+                      child: RaisedButton(
+                        child: Text(
+                          "Submit",
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 15.0,
+                          ),
+                        ),
+                        color: Colors.teal.shade600,
+                        textColor: Colors.white,
+                        onPressed: () {
+                          if (_formKey.currentState!.validate()) {
+                            Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) => HomePage(),
+                            ));
+                          }
+                        },
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(12.0),
+                        ),
+                      ),
                     ),
                   ),
-                  color: Colors.teal.shade600,
-                  textColor: Colors.white,
-                  onPressed: () {
-                    Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => HomePage(),
-                    ));
-                  },
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12.0),
-                  ),
-                ),
+                ],
               ),
             ),
           ],
@@ -207,8 +226,8 @@ class BodyIzin extends StatelessWidget {
 class Absen extends StatelessWidget {
   final String imgSrc;
   const Absen({
-    Key key,
-    this.imgSrc,
+    Key? key,
+    required this.imgSrc,
   }) : super(key: key);
 
   @override
