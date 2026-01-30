@@ -109,5 +109,5 @@ Jika butuh bantuan lebih lanjut atau akses ke backend/API, hubungi maintainer re
 
 ---
 
-Terima kasih sudah menggunakan/berkontribusi pada proyek ini! 🙏
+Terima kasih sudah menggunakan/berkontribusi pada proyek ini!
 
